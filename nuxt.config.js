@@ -7,6 +7,22 @@ export default {
   env: {
     API_KEY
   },
+  generate: {
+    routes() {
+      const blog = axios
+        .get("https://kentakimuraportfolio.microcms.io/api/v1/blog", {
+          headers: { "X-API-KEY": process.env.API_KEY }
+        })
+        .then(res => {
+          return res.data.contents.map(blog => {
+            return "/article/" + blog.id;
+          });
+        });
+      return Promise.all([blog]).then(values => {
+        return values.join().split(",");
+      });
+    }
+  },
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -55,6 +71,8 @@ export default {
     injected: true,
     preset: 'default',
   },
+
+  
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
