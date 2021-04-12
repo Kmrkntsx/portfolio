@@ -1,16 +1,62 @@
 <template>
- <div>
-  <h1>test-blog</h1>
-  <div v-for="(item,key) in items" :key="key">
-    <nuxt-link :to="'article/' + item.id">
-       <h2>{{ item.title }}</h2>
-    </nuxt-link>
-  </div>
+ <div class="wrapper">
+    <div class="jumbotron">
+      <div class="container top-content">
+        <h1>KENTA KIMURA</h1>
+        <h3>WebEngineer</h3>
+      </div>
+    </div>
+    <div class="bg-glay">
+        <div class="container">
+            <h1 class="left-title text-left">ABOUT</h1>
+            <span class="sub-title text-left">自己紹介</span>
+            <div class="row my-5">
+              <div class="col-md-6">
+                  <p class="about-text">
+                    愛知県在住Ｗｅｂエンジニア<br>
+                    印刷会社兼Ｗｅｂ制作会社で3年勤務後<br>
+                    ＩＴ企業に入社したしがないＳＥ<br>
+                  </p>
+                  <p class="mt-3">
+                    ＨＰ制作<br>
+                    ディレクション・デザイン・コーディング<br>
+                    ※広く浅く...<br>
+                    Angular の経験も有 React勉強中<br>
+                    とにかくWebを勉強中です！
+                  </p>
+              </div>
+              <div class="col-md-6 sp-mt-5">
+                  <img src="../assets/images/about.png" alt="about">
+              </div>
+            </div>
+        </div>
+    </div>
+ <div class="container my-5">
+    <h1 class="title text-center">BLOG</h1>
+    <span class="sub-title text-center">ブログ</span>
+    <div class="row mt-5">
+      <div v-for="(item,key) in items" :key="key" class="col-md-4 mb-3">
+        <img :src="item.thumb.url" alt="" width="80%">
+        <p>{{ item.createdAt}}</p>
+        <nuxt-link :to="'article/' + item.id">
+          <h4 class="blog-title color-def">{{ item.title }}</h4>
+        </nuxt-link>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="btn bg-sub text-white">MORE</button>
+    </div>
+ </div>
+  <Footer />
  </div>
 </template>
 <script>
 import axios from "axios";
+import Footer from "@/components/footer.vue";
 export default {
+  components: {
+    Footer
+  },
   data() {
     return {
       items: []
@@ -29,22 +75,3 @@ export default {
   }
 }
 </script>
-
-<style>
-h1 {
-  display: block;
-  font-size: 3em;
-  text-align: center;
-  font-weight: bold;
-  border-top: solid 3px #364e96;
-  border-bottom: solid 3px #364e96;
-}
-h2 {
-   display: block;
-    font-size: 1.6em;
-    text-align: center;
-    font-weight: bold;
-    border: solid #ddd;
-    border-width: 0 0 1px 0;
-}
-</style>
