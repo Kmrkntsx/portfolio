@@ -1,0 +1,142 @@
+body {
+    color: #606060;
+    font-size: 16px;
+}
+
+p {
+    margin-bottom: 0!important;
+}
+
+img {
+    width: 90%;
+}
+
+@media screen and (max-width: 640px) {
+    img {
+        width: 100%;
+    }
+    .sp-mt-5 {
+        margin-top: 3rem;
+    }
+}
+
+
+.color-def {
+    color: #606060;
+}
+
+.bg-sub {
+    background: #6699CC;
+}
+
+.bg-glay {
+    background: #EFEFEF;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.jumbotron {
+    background: url(../images/top.jpg) center no-repeat;
+    background-size: cover;
+    height: 500px;
+    margin: 0;
+}
+
+.top-content {
+    color: #fff;
+    margin: 0 auto;
+    border: rgba(234,185,10,0.7) solid 10px;
+    padding: 50px 100px;
+}
+
+@media screen and (max-width: 1000px) {
+    .top-content {
+        padding: 20px 40px;
+    }
+}
+
+.top-content h1 {
+    font-size: 5rem;
+}
+
+.top-content h3 {
+    font-size: 3rem;
+}
+
+
+@media screen and (max-width: 640px) {
+    .jumbotron {
+        height: 400px;
+    }
+    .top-content h1 {
+        font-size: 3rem;
+    }
+    .top-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 300px;
+    box-sizing: border-box;
+}
+
+.title {
+    width: 200px;
+    padding-left: 10px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 0!important;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(transparent 70%, #EAB90A 0%);
+    position: relative;
+}
+
+.left-title {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 0!important;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(transparent 70%, #EAB90A 0%);
+}
+
+.sub-title {
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+h4.blog-title {
+    font-size: 1.3rem;
+}
+
+.text-center .btn {
+    width: 150px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.contact {
+    bottom: 50px;
+    position: absolute;
+}
+
+.contract-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+.contract-text .text-reset {
+    text-decoration: underline;
+}
