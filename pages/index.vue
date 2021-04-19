@@ -35,11 +35,11 @@
     <h1 class="title text-center">BLOG</h1>
     <span class="sub-title text-center">ブログ</span>
     <div class="row mt-5">
-      <div v-for="(item,key) in items" :key="key" class="col-md-4 mb-3">
-        <img :src="item.thumb.url" alt="" width="80%">
-        <p>{{ item.createdAt}}</p>
-        <nuxt-link :to="'article/' + item.id">
-          <h4 class="blog-title color-def">{{ item.title }}</h4>
+      <div v-for="article in articles" :key="article.id" class="col-md-4 mb-3">
+        <img :src="article.thumb.url" alt="">
+        <p>{{ formatDate(article.createdAt, 'yyyy/MM/dd') }}</p>
+        <nuxt-link :to="'article/' + article.id">
+          <h4 class="blog-title color-def">{{ article.title }}</h4>
         </nuxt-link>
       </div>
     </div>
@@ -53,25 +53,27 @@
 <script>
 import axios from "axios";
 import Footer from "@/components/footer.vue";
+import util from '../mixin/util';
 export default {
+
+  mixins: [util],
   components: {
     Footer
   },
-  data() {
-    return {
-      items: []
-    };
-  },
-  async asyncData() {
-    const { data } = await axios.get(
-      "https://kentakimuraportfolio.microcms.io/api/v1/blog",
-      {
-        headers: { "X-API-KEY": process.env.API_KEY }
+  data: () => ({
+    articles: []
+  }),
+  async mounted() {
+      const response = await axios.get(
+        "https://kentakimuraportfolio.microcms.io/api/v1/blog",
+        {
+          headers: { "X-API-KEY": process.env.API_KEY }
+        }
+      );
+      // 最新3件のみ取得
+      for(let i = 0; i < 3; i++){
+        this.articles.push(response.data.contents[i]);
       }
-    );
-    return {
-      items: data.contents
-    };
   }
-}
+  }
 </script>
